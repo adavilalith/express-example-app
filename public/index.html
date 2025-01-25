@@ -1,0 +1,17 @@
+<h1>Ping Pong Demo</h1>
+<button onclick="ping()">ping</button>
+<h2 id="res"></h2>
+<script>
+    let c = 0;
+    const ping = async () => {
+        try {
+            const res = await axios.get("/ping");
+            console.log(res.data);
+            c++;
+            document.getElementById("res").innerHTML = `${res.data}: ${c} `;
+        } catch (e) {
+            console.log(e);
+        }
+    };
+</script>
+<script src="https://unpkg.com/axios/dist/axios.min.js"></script>
